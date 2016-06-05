@@ -1,26 +1,22 @@
 package com.garytech.model;
 
+import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 
 import java.util.List;
 
-@Root(name = "channel")
+@Root(name = "rss")
 public class RssFeed {
 
 
-    @ElementList(name = "item")
-    List<Film> mFilmList;
+    @Element(name ="channel")
+    Channel channel;
 
     public RssFeed() {
     }
 
-
-    public List<Film> getFilmList() {
-        return mFilmList;
-    }
-
-    public void setFilmList(List<Film> filmList) {
-        mFilmList = filmList;
+    public Channel getChannel() {
+        return channel;
     }
 }

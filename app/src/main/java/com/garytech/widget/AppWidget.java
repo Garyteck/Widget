@@ -3,7 +3,9 @@ package com.garytech.widget;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
+import android.util.Log;
 import android.widget.RemoteViews;
+import android.widget.Toast;
 
 import com.garytech.model.Film;
 import com.garytech.model.RssFeed;
@@ -29,7 +31,7 @@ public class AppWidget extends AppWidgetProvider {
     private Retrofit mRetrofit = new Retrofit.Builder()
             .baseUrl(RSS_FEED_URL)
             .client(new OkHttpClient())
-            .addConverterFactory(SimpleXmlConverterFactory.create())
+            .addConverterFactory(SimpleXmlConverterFactory.createNonStrict())
             .build();
 
 
@@ -48,7 +50,7 @@ public class AppWidget extends AppWidgetProvider {
             @Override
             public void onResponse(Call<RssFeed> call, Response<RssFeed> response) {
                 if (response != null) {
-                    mFilmList = response.body().getFilmList();
+                    mFilmList = response.body().getChannel().getFilmList();
 
                     final int N = appWidgetIds.length;
 
@@ -63,7 +65,8 @@ public class AppWidget extends AppWidgetProvider {
 
             @Override
             public void onFailure(Call<RssFeed> call, Throwable t) {
-
+                Toast.makeText(context,"Failure to call WS",Toast.LENGTH_LONG).show();
+                Log.w(AppWidget.class.getName(), t.getCause());
             }
         });
 
