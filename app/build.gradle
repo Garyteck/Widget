@@ -11,9 +11,11 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+
     }
     buildTypes {
-        release {
+        relase {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -27,17 +29,20 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'io.reactivex:rxjava:1.1.0'
+    compile 'com.android.support:multidex:1.0.0'
+
     compile 'com.android.support:appcompat-v7:23.1.1'
 
     // View injections
     compile 'com.jakewharton:butterknife:7.0.1'
 
     // Rest Services
-    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
-    compile 'com.squareup.okhttp3:okhttp:3.1.2'
+    compile group: 'com.squareup.retrofit', name: 'retrofit', version: '1.9.0'
+    compile 'com.squareup.okhttp:okhttp:2.7.2'
 
     // Deserializing
-    compile('com.squareup.retrofit2:converter-simplexml:2.0.0-beta4') {
+    compile (group: 'com.squareup.retrofit', name: 'converter-simplexml', version: '1.9.0'){
         exclude group: 'xpp3', module: 'xpp3'
         exclude group: 'stax', module: 'stax-api'
         exclude group: 'stax', module: 'stax'

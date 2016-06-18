@@ -1,21 +1,37 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="@dimen/widget_margin"
+                android:gravity="center"
                 android:background="#09C">
 
-    <TextView
-        android:id="@+id/appwidget_text"
+    <ImageView
+        android:id="@+id/previous"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:src="@drawable/previous_selector_36dp"
+        android:scaleType="centerInside"
+        android:padding="@dimen/margin_button"/>
+
+    <TextView
+        android:id="@+id/rss_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:text="@string/appwidget_text"
         android:textColor="#ffffff"
         android:textSize="24sp"
         android:textStyle="bold|italic"
-        android:layout_margin="8dp"
-        android:contentDescription="@string/appwidget_text"
-        android:background="#09C"/>
+        android:gravity="center"
+        android:contentDescription="@string/appwidget_text" />
 
-</RelativeLayout>
+    <ImageView
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/next_selector_36dp"
+        android:scaleType="centerInside"
+        android:padding="@dimen/margin_button"/>
+
+
+</LinearLayout>
