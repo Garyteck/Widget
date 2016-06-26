@@ -15,6 +15,12 @@ public class Film extends RealmObject{
     @PrimaryKey
     String mTitle;
 
+    @Element(name = "magnetURI")
+    String mMagnetUri;
+
+    @Element(name = "guid")
+    String mInfo;
+
     public Film() {
     }
 
@@ -22,12 +28,13 @@ public class Film extends RealmObject{
         return mTitle;
     }
 
-
-    @Element(name = "magnetURI")
-    String mMagnetUri;
-
     public String getmMagnetUri() {
         return mMagnetUri;
     }
+
+    public String getInfo() {
+        return mInfo;
+    }
+
 
 }

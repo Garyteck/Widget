@@ -15,7 +15,8 @@
         <receiver android:name=".AppWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="com.garytech.data.NEW_MOVIE_BROADCAST_ACTION"/>
+                <action android:name="com.garytech.data.NEW_MOVIE_BROADCAST_ACTION" />
+                <action android:name="com.garytech.data.RELOAD_WIDGET_ACTION"/>
             </intent-filter>
 
             <meta-data
@@ -23,8 +24,9 @@
                 android:resource="@xml/app_widget_info" />
         </receiver>
 
+        <service android:name="com.garytech.data.FetchMovieService" />
         <service
-            android:name="com.garytech.data.FetchMovieService"/>
+            android:name="com.garytech.data.ReloadWidgetService"/>
     </application>
 
 </manifest>

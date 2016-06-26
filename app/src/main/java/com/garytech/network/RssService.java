@@ -2,6 +2,8 @@ package com.garytech.network;
 
 import com.garytech.model.RssFeed;
 
+
+import retrofit.Callback;
 import retrofit.http.GET;
 
 
@@ -11,5 +13,5 @@ import retrofit.http.GET;
 public interface RssService {
 
     @GET("/movies/?rss=1")
-    RssFeed getMovies();
+    void getMovies(Callback<RssFeed> rssFeedCallback);
 }

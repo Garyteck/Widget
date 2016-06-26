@@ -1,0 +1,25 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/widget_margin"
+    android:gravity="center"
+    android:background="@android:color/black">
+
+
+
+    <TextView
+        android:id="@+id/rss_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/appwidget_text"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:layout_centerInParent="true"
+        android:textStyle="bold|italic"
+        android:gravity="center"
+        android:contentDescription="@string/appwidget_text" />
+
+
+</RelativeLayout>
+
+

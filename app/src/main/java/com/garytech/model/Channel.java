@@ -20,7 +20,4 @@ public class Channel {
         return mFilmList;
     }
 
-    public void setFilmList(List<Film> filmList) {
-        mFilmList = filmList;
-    }
 }
